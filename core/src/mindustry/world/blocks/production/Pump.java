@@ -58,7 +58,7 @@ public class Pump extends LiquidBlock{
         Draw.rect(liquidRegion, tile.drawx(), tile.drawy());
         Draw.color();
         Draw.reset();
-        Draw.rect(Core.atlas.find(name + "-rotator"), tile.drawx(), tile.drawy(), (entity.pumpTime * pumpAmount)*2);
+        Draw.rect(Core.atlas.find(name + "-rotator"), tile.drawx(), tile.drawy(), (entity.pumpTime * pumpAmount)*5);
         Draw.rect(Core.atlas.find(name + "-top"), tile.drawx(), tile.drawy());
     }
 

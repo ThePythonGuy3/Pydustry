@@ -17,6 +17,7 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.*;
+import mindustry.game.*;
 import mindustry.world.blocks.*;
 import mindustry.world.meta.*;
 import mindustry.world.modules.*;
@@ -62,6 +63,24 @@ public class CoreBlock extends StorageBlock{
                 () -> Pal.items,
                 () -> e.items.total() / (float)(((CoreEntity)e).storageCapacity * content.items().count(i -> i.type == ItemType.material))
             ));
+    }
+
+    @Override
+    public void draw(Tile tile){
+        Draw.rect(Core.atlas.find(name + "-base"), tile.drawx(), tile.drawy());
+        if(tile.getTeam() == Team.sharded){
+            Draw.rect(Core.atlas.find(name), tile.drawx(), tile.drawy());
+        } else {
+            Draw.color(tile.getTeam().color);
+            Draw.rect(Core.atlas.find(name + "-top"), tile.drawx(), tile.drawy());
+        }
+        Draw.color();
+        Draw.reset();
+    }
+
+    @Override
+    public TextureRegion[] generateIcons(){
+        return new TextureRegion[]{Core.atlas.find(name)};
     }
 
     @Override
