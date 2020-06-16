@@ -90,7 +90,7 @@ public class MenuFragment extends Fragment{
 
 
             Fonts.def.setColor(Color.white);
-            Fonts.def.draw(versionText, fx, fy - logoh/2f, Align.center);
+            //Fonts.def.draw(versionText, fx, fy - logoh/2f, Align.center);
         }).touchable(Touchable.disabled);
     }
 
